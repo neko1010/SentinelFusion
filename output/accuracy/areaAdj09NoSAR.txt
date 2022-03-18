@@ -1,0 +1,14 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Wed Mar 16 22:39:50 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrr}
+  \hline
+ & km² & km²± & PA & PA± & UA & UA± & OA & OA± \\ 
+  \hline
+Other & 255755.10 & 4637.91 & 99.58 & 0.55 & 97.11 & 1.68 & 96.78 & 1.67 \\ 
+  Mesic & 25727.42 & 4736.00 & 70.57 & 12.27 & 92.11 & 8.69 &  &  \\ 
+  Water & 2538.84 & 1017.91 & 79.57 & 31.87 & 98.77 & 2.42 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}

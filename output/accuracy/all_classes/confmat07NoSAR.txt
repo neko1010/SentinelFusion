@@ -1,0 +1,16 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Tue Mar 15 16:56:16 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrr}
+  \hline
+ & 1 & 2 & 3 & 4 & 5 \\ 
+  \hline
+1 & 314.00 & 12.00 & 0.00 & 2.00 & 2.00 \\ 
+  2 & 11.00 & 66.00 & 2.00 & 0.00 & 0.00 \\ 
+  3 & 0.00 & 0.00 & 89.00 & 0.00 & 0.00 \\ 
+  4 & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\ 
+  5 & 0.00 & 0.00 & 0.00 & 0.00 & 2.00 \\ 
+   \hline
+\end{tabular}
+\end{table}

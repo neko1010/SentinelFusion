@@ -1,0 +1,13 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Fri Mar 18 13:00:05 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & Land & Water \\ 
+  \hline
+Land & 134885 & 545 \\ 
+  Water &   5 &  35 \\ 
+   \hline
+\end{tabular}
+\end{table}

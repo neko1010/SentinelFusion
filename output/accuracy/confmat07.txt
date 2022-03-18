@@ -1,0 +1,14 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Wed Mar 16 17:30:40 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrr}
+  \hline
+ & 1 & 2 & 3 \\ 
+  \hline
+1 & 321 &   9 &   0 \\ 
+  2 &  10 &  69 &   2 \\ 
+  3 &   0 &   0 &  89 \\ 
+   \hline
+\end{tabular}
+\end{table}

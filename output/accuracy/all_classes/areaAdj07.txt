@@ -1,0 +1,16 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Wed Mar 16 13:23:29 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrr}
+  \hline
+ & km² & km²± & PA & PA± & UA & UA± & OA & OA± \\ 
+  \hline
+Upland & 231141.99 & 5996.75 & 97.51 & 1.42 & 96.04 & 2.11 & 94.26 & 2.17 \\ 
+  Mesic & 46222.31 & 5521.19 & 86.07 & 7.81 & 85.19 & 7.78 &  &  \\ 
+  Water & 3183.70 & 1588.14 & 63.78 & 31.82 & 100.00 & 0.00 &  &  \\ 
+  Snow & 1430.96 & 1980.18 & 0.00 & 0.00 & 0.00 & 0.00 &  &  \\ 
+  Shadow & 1943.18 & 1980.18 & 26.36 & 26.86 & 100.00 & 0.00 &  &  \\ 
+   \hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,13 @@
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Fri Mar 18 13:02:00 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrr}
+  \hline
+ & PA July & UA July & OA July & PA Aug & UA Aug & OA Aug & PA Sep & UA Sep & OA Sep \\ 
+  \hline
+Other & 80.79 & 98.09 & 81.85 & 78.98 & 99.01 & 80.34 & 77.17 & 99.47 & 78.46 \\ 
+  Mesic & 89.16 & 40.25 &  & 92.79 & 32.52 &  & 94.82 & 24.63 &  \\ 
+   \hline
+\end{tabular}
+\end{table}
