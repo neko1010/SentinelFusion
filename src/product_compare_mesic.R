@@ -195,6 +195,7 @@ print(sgi.result.x, file = '../../output/archetypes/haileyCreekSGIresult.txt')
 
 ######################## BAR PLOT ########################################################
 library(ggplot2)
+library(RColorBrewer)
 
 ## Gather the data
 mesic.product = c(rep("SF", 9), rep("NWI", 9), rep("SGI", 9))
@@ -212,9 +213,10 @@ mesic.acc = mesic.acc*100
 
 mesic = data.frame(mesic.product, month, mesic.metric, mesic.acc)
 
+
 ## factor the months to maintain the correct order (July, August, September)
 mesic$month <- factor(mesic$month, levels = unique(mesic$month))
-
+mesic$mesic.product <- factor(mesic$mesic.product, levels = unique(mesic$mesic.product))
 
 ##Grouped
 ggplot(mesic, aes(fill = mesic.product, y = mesic.acc, x = mesic.metric)) +
@@ -222,4 +224,5 @@ ggplot(mesic, aes(fill = mesic.product, y = mesic.acc, x = mesic.metric)) +
   geom_bar(position = 'dodge', stat = 'identity')+
   ## multipanel
   facet_wrap(~month, ncol = 3)+
-  labs(fill = 'Product', y = 'Accuracy(%)', x = 'Metric')
+  labs(fill = 'Product', y = 'Accuracy(%)', x = 'Metric') +
+  scale_fill_viridis_d(direction = -1)

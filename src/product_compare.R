@@ -234,6 +234,7 @@ print(GLAD.result.x, file = '../../output/archetypes/GLADresult.txt')
 
 ######################## BAR PLOT ########################################################
 library(ggplot2)
+library(RColorBrewer)
 
 ########################### SURFACE WATER #####################################i
 ## Gather the data
@@ -256,7 +257,7 @@ water = data.frame(product, site, metric, acc)
 
 ## factor the sites to maintain the correct order (Reservoir, Spring-fed, Riparian, Aggregate)
 water$site <- factor(water$site, levels = unique(water$site))
-
+water$product <- factor(water$product, levels = unique(water$product))
 
 ##Grouped
 ggplot(water, aes(fill = product, y = acc, x = metric)) +
@@ -264,4 +265,6 @@ ggplot(water, aes(fill = product, y = acc, x = metric)) +
   geom_bar(position = 'dodge', stat = 'identity')+
   ## multipanel
   facet_wrap(~site, ncol = 2)+
-  labs(fill = 'Product', y = 'Accuracy(%)', x = 'Metric')
+  labs(fill = 'Product', y = 'Accuracy(%)', x = 'Metric') +
+  scale_fill_viridis_d(direction = -1)
+  
