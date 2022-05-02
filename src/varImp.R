@@ -41,7 +41,8 @@ water.sort
 water.sort$Covariate <- factor(water.sort$Covariate, levels = water.sort$Covariate)
 water.plot = ggplot(data = water.sort, aes( x = Covariate, y = MDG)) +
   ##barplot
-  geom_bar( stat = 'identity') + coord_flip()
+  geom_bar( stat = 'identity', width =0.5) + coord_flip()+
+  theme(axis.text = element_text(size = 12)) 
 
 water.plot
 
@@ -56,6 +57,7 @@ mesic.sort
 mesic.sort$Covariate <- factor(mesic.sort$Covariate, levels = mesic.sort$Covariate)
 mesic.plot = ggplot(data = mesic.sort, aes( x = Covariate, y = MDG)) +
   ##barplot
-  geom_bar( stat = 'identity') + coord_flip()
+  geom_bar( stat = 'identity', width =0.5) + coord_flip()+
+  theme(axis.text = element_text(size = 12))   
 
 mesic.plot
