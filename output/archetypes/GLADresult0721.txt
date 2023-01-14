@@ -1,13 +1,13 @@
 % latex table generated in R 3.6.3 by xtable 1.8-4 package
-% Sat Jan 14 10:56:11 2023
+% Wed Jan 11 13:18:24 2023
 \begin{table}[ht]
 \centering
-\begin{tabular}{rrr}
+\begin{tabular}{rrrr}
   \hline
- & Other & Mesic \\ 
+ & PA & UA & OA \\ 
   \hline
-Other & 30284 & 1722 \\ 
-  Mesic & 318 & 1172 \\ 
+Land & 99.87 & 99.31 & 99.21 \\ 
+  Water & 84.03 & 96.68 &  \\ 
    \hline
 \end{tabular}
 \end{table}
