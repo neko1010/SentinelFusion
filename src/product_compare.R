@@ -7,9 +7,9 @@ setwd('~/BSU/diss/SF_MS/data/comparisons/')
 ## Planet maps raster to points
 
 ## Planet maps
-mackay.planet = raster('mackay/planetBinary.tif')
-thou.planet = raster('thousprings/planetBinary.tif')
-biglost.planet = raster('biglost/planetBinary.tif')
+mackay.planet = raster('2021/planetBinaryMackay0721.tif')
+thou.planet = raster('2021/planetBinaryThousprings0721.tif')
+biglost.planet = raster('2021/planetBinaryBiglost0721.tif')
 
 ## to points
 mackay.pts = rasterToPoints(mackay.planet, spatial = T) 
@@ -17,9 +17,9 @@ thou.pts = rasterToPoints(thou.planet, spatial = T)
 biglost.pts = rasterToPoints(biglost.planet, spatial = T) 
 
 ## Compare with SF
-mackay.sf = raster('mackay/SFbinaryMackay.tif')
-thou.sf = raster('thousprings/SFbinaryThousprings.tif')
-biglost.sf = raster('biglost/SFbinaryBiglost.tif')
+mackay.sf = raster('2021/SFbinaryMackay0721.tif')
+thou.sf = raster('2021/SFbinaryThousprings0721.tif')
+biglost.sf = raster('2021/SFbinaryBiglost0721.tif')
 
 ## categories
 cats = c('Land', 'Water')
@@ -27,7 +27,7 @@ cats = c('Land', 'Water')
 ## SF
 
 ## Mackay
-mackay.sf.confmat <- table(as.factor(extract(mackay.sf, mackay.pts)), as.factor(mackay.pts$planetBinary))
+mackay.sf.confmat <- table(as.factor(extract(mackay.sf, mackay.pts)), as.factor(mackay.pts$planetBinaryMackay0721))
 rownames(mackay.sf.confmat) =  cats
 colnames(mackay.sf.confmat) =  cats
 mackay.sf.confmat
@@ -46,7 +46,7 @@ mackay.sf.result
 
 
 ## Thousand springs
-thou.sf.confmat <- table(as.factor(extract(thou.sf, thou.pts)), as.factor(thou.pts$planetBinary))
+thou.sf.confmat <- table(as.factor(extract(thou.sf, thou.pts)), as.factor(thou.pts$planetBinaryThousprings0721))
 rownames(thou.sf.confmat) = cats
 colnames(thou.sf.confmat) = cats
 thou.sf.confmat
@@ -65,7 +65,7 @@ thou.sf.result
 
 
 ## Big Lost
-biglost.sf.confmat <- table(as.factor(extract(biglost.sf, biglost.pts)), as.factor(biglost.pts$planetBinary))
+biglost.sf.confmat <- table(as.factor(extract(biglost.sf, biglost.pts)), as.factor(biglost.pts$planetBinaryBiglost0721))
 rownames(biglost.sf.confmat) = cats
 colnames(biglost.sf.confmat) = cats
 biglost.sf.confmat
@@ -84,12 +84,12 @@ biglost.sf.result
 
 ##GLAD ##########################
 
-mackay.GLAD = raster('mackay/GLADbinary.tif')
-thou.GLAD = raster('thousprings/GLADbinary.tif')
-biglost.GLAD = raster('biglost/GLADbinary.tif')
+mackay.GLAD = raster('2021/GLADbinaryMackay0721.tif')
+thou.GLAD = raster('2021/GLADbinaryThousprings0721.tif')
+biglost.GLAD = raster('2021/GLADbinaryBiglost0721.tif')
 
 ## Mackay
-mackay.GLAD.confmat <- table(as.factor(extract(mackay.GLAD, mackay.pts)), as.factor(mackay.pts$planetBinary))
+mackay.GLAD.confmat <- table(as.factor(extract(mackay.GLAD, mackay.pts)), as.factor(mackay.pts$planetBinaryMackay0721))
 rownames(mackay.GLAD.confmat) = cats
 colnames(mackay.GLAD.confmat) = cats
 mackay.GLAD.confmat
@@ -107,7 +107,7 @@ class(mackay.GLAD.result) <- "table"
 mackay.GLAD.result
 
 ## Thousand springs
-thou.GLAD.confmat <- table(as.factor(extract(thou.GLAD, thou.pts)), as.factor(thou.pts$planetBinary))
+thou.GLAD.confmat <- table(as.factor(extract(thou.GLAD, thou.pts)), as.factor(thou.pts$planetBinaryThousprings0721))
 rownames(thou.GLAD.confmat) = cats
 colnames(thou.GLAD.confmat) = cats
 thou.GLAD.confmat
@@ -126,10 +126,13 @@ thou.GLAD.result
 
 
 ## Big Lost
-biglost.GLAD.confmat <- table(as.factor(extract(biglost.GLAD, biglost.pts)), as.factor(biglost.pts$planetBinary))
+biglost.GLAD.confmat <- table(as.factor(extract(biglost.GLAD, biglost.pts)), as.factor(biglost.pts$planetBinaryBiglost0721))
+biglost.GLAD.confmat <-rbind(biglost.GLAD.confmat, c(0,0))  ## no water detected - need to append a row of zeroes
 rownames(biglost.GLAD.confmat) = cats
 colnames(biglost.GLAD.confmat) = cats
 biglost.GLAD.confmat
+
+
 ## OA, PA, UA
 biglost.GLAD.oa = sum(diag(biglost.GLAD.confmat))/sum(biglost.GLAD.confmat)
 biglost.GLAD.pa = diag(biglost.GLAD.confmat)/colSums(biglost.GLAD.confmat)
@@ -191,46 +194,46 @@ sum(GLAD.confmat)
 
 ##SF
 mackay.sf.confmat.x = xtable(mackay.sf.confmat)
-print(mackay.sf.confmat.x, file = '../../output/archetypes/mackaySFconfmat.txt')
+print(mackay.sf.confmat.x, file = '../../output/archetypes/mackaySFconfmat0721.txt')
 mackay.sf.result.x = xtable(mackay.sf.result)
-print(mackay.sf.result.x, file = '../../output/archetypes/mackaySFresult.txt')
+print(mackay.sf.result.x, file = '../../output/archetypes/mackaySFresult0721.txt')
 
 thou.sf.confmat.x = xtable(thou.sf.confmat)
-print(thou.sf.confmat.x, file = '../../output/archetypes/thouSF.txt')
+print(thou.sf.confmat.x, file = '../../output/archetypes/thouSF0721.txt')
 thou.sf.result.x = xtable(thou.sf.result)
-print(thou.sf.result.x, file = '../../output/archetypes/thouSFresult.txt')
+print(thou.sf.result.x, file = '../../output/archetypes/thouSFresult0721.txt')
 
 biglost.sf.confmat.x = xtable(thou.sf.confmat)
-print(biglost.sf.confmat.x, file = '../../output/archetypes/biglostSF.txt')
+print(biglost.sf.confmat.x, file = '../../output/archetypes/biglostSF0721.txt')
 biglost.sf.result.x = xtable(biglost.sf.result)
-print(biglost.sf.result.x, file = '../../output/archetypes/biglostSFresult.txt')
+print(biglost.sf.result.x, file = '../../output/archetypes/biglostSFresult0721.txt')
 
 ##GLAD
 mackay.GLAD.confmat.x = xtable(mackay.GLAD.confmat)
-print(mackay.GLAD.confmat.x, file = '../../output/archetypes/mackayGLAD.txt')
+print(mackay.GLAD.confmat.x, file = '../../output/archetypes/mackayGLAD0721.txt')
 mackay.GLAD.result.x = xtable(mackay.GLAD.result)
-print(mackay.GLAD.result.x, file = '../../output/archetypes/mackayGLADresult.txt')
+print(mackay.GLAD.result.x, file = '../../output/archetypes/mackayGLADresult0721.txt')
 
 thou.GLAD.confmat.x = xtable(thou.GLAD.confmat)
-print(thou.GLAD.confmat.x, file = '../../output/archetypes/thouGLAD.txt')
+print(thou.GLAD.confmat.x, file = '../../output/archetypes/thouGLAD0721.txt')
 thou.GLAD.result.x = xtable(thou.GLAD.result)
-print(thou.GLAD.result.x, file = '../../output/archetypes/thouGLADresult.txt')
+print(thou.GLAD.result.x, file = '../../output/archetypes/thouGLADresult0721.txt')
 
 biglost.GLAD.confmat.x = xtable(biglost.GLAD.confmat)
-print(biglost.GLAD.confmat.x, file = '../../output/archetypes/biglostGLAD.txt')
+print(biglost.GLAD.confmat.x, file = '../../output/archetypes/biglostGLAD0721.txt')
 biglost.GLAD.result.x = xtable(biglost.GLAD.result)
-print(biglost.GLAD.result.x, file = '../../output/archetypes/biglostGLADresult.txt')
+print(biglost.GLAD.result.x, file = '../../output/archetypes/biglostGLADresult0721.txt')
 
 #### ALL ###
 sf.confmat.x = xtable(sf.confmat)
-print(sf.confmat.x, file = '../../output/archetypes/SFconfmat.txt')
+print(sf.confmat.x, file = '../../output/archetypes/SFconfmat0721.txt')
 sf.result.x = xtable(sf.result)
-print(sf.result.x, file = '../../output/archetypes/SFresult.txt')
+print(sf.result.x, file = '../../output/archetypes/SFresult0721.txt')
 
 GLAD.confmat.x = xtable(GLAD.confmat)
-print(GLAD.confmat.x, file = '../../output/archetypes/GLADconfmat.txt')
+print(GLAD.confmat.x, file = '../../output/archetypes/GLADconfmat0721.txt')
 GLAD.result.x = xtable(GLAD.result)
-print(GLAD.result.x, file = '../../output/archetypes/GLADresult.txt')
+print(GLAD.result.x, file = '../../output/archetypes/GLADresult0721.txt')
 
 ######################## BAR PLOT ########################################################
 library(ggplot2)

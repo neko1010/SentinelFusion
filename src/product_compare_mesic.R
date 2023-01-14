@@ -8,9 +8,9 @@ setwd('~/BSU/diss/SF_MS/data/comparisons/')
 ## Planet maps raster to points
 
 ## Planet maps
-hailey.planet.july = raster('haileyCreek/planetBinary0719.tif')
-hailey.planet.aug = raster('haileyCreek/planetBinary0819.tif')
-hailey.planet.sep = raster('haileyCreek/planetBinary0919.tif')
+hailey.planet.july = raster('2021/planetBinhaileyCreek0721.tif')
+hailey.planet.aug = raster('2021/planetBinhaileyCreek0821.tif')
+hailey.planet.sep = raster('2021/planetBinhaileyCreek0921.tif')
 
 ## to points
 hailey.pts.july = rasterToPoints(hailey.planet.july, spatial = T)
@@ -18,10 +18,10 @@ hailey.pts.aug = rasterToPoints(hailey.planet.aug, spatial = T)
 hailey.pts.sep = rasterToPoints(hailey.planet.sep, spatial = T) 
 
 ## Compare with other products 
-##Sentinel fusioan
-hailey.sf.july = raster('haileyCreek/SFbinary_mesic0719.tif')
-hailey.sf.aug = raster('haileyCreek/SFbinary_mesic0819.tif')
-hailey.sf.sep = raster('haileyCreek/SFbinary_mesic0919.tif')
+##Sentinel fusion
+hailey.sf.july = raster('2021/SFbinhaileyCreek0721.tif')
+hailey.sf.aug = raster('2021/SFbinhaileyCreek0821.tif')
+hailey.sf.sep = raster('2021/SFbinhaileyCreek0921.tif')
 
 ##NWI and SGI polys
 hailey.nwi = st_read('haileyCreekNWI.shp')
@@ -47,7 +47,7 @@ cats = c('Other', 'Mesic')
 
 ## SF comparison
 ##July
-sf.confmat.july <- table(as.factor(extract(hailey.sf.july, hailey.pts.july)), as.factor(hailey.pts.july$planetBinary0719))
+sf.confmat.july <- table(as.factor(extract(hailey.sf.july, hailey.pts.july)), as.factor(hailey.pts.july$planetBinhaileyCreek0721))
 rownames(sf.confmat.july) =  cats
 colnames(sf.confmat.july) =  cats
 sf.confmat.july
@@ -57,7 +57,7 @@ sf.pa.july = diag(sf.confmat.july)/colSums(sf.confmat.july)
 sf.ua.july = diag(sf.confmat.july)/rowSums(sf.confmat.july)
 
 ## August
-sf.confmat.aug <- table(as.factor(extract(hailey.sf.aug, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinary0819))
+sf.confmat.aug <- table(as.factor(extract(hailey.sf.aug, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinhaileyCreek0821))
 rownames(sf.confmat.aug) =  cats
 colnames(sf.confmat.aug) =  cats
 sf.confmat.aug
@@ -67,7 +67,7 @@ sf.pa.aug = diag(sf.confmat.aug)/colSums(sf.confmat.aug)
 sf.ua.aug = diag(sf.confmat.aug)/rowSums(sf.confmat.aug)
 
 ## September
-sf.confmat.sep <- table(as.factor(extract(hailey.sf.sep, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinary0919))
+sf.confmat.sep <- table(as.factor(extract(hailey.sf.sep, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinhaileyCreek0921))
 rownames(sf.confmat.sep) =  cats
 colnames(sf.confmat.sep) =  cats
 sf.confmat.sep
@@ -90,7 +90,7 @@ sf.result
 
 ## NWI comparison
 ## July
-nwi.confmat.july <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.july)), as.factor(hailey.pts.july$planetBinary0719))
+nwi.confmat.july <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.july)), as.factor(hailey.pts.july$planetBinhaileyCreek0721))
 rownames(nwi.confmat.july) =  cats
 colnames(nwi.confmat.july) =  cats
 nwi.confmat.july
@@ -100,7 +100,7 @@ nwi.pa.july = diag(nwi.confmat.july)/colSums(nwi.confmat.july)
 nwi.ua.july = diag(nwi.confmat.july)/rowSums(nwi.confmat.july)
 
 ## Aug
-nwi.confmat.aug <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinary0819))
+nwi.confmat.aug <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinhaileyCreek0821))
 rownames(nwi.confmat.aug) =  cats
 colnames(nwi.confmat.aug) =  cats
 nwi.confmat.aug
@@ -110,7 +110,7 @@ nwi.pa.aug = diag(nwi.confmat.aug)/colSums(nwi.confmat.aug)
 nwi.ua.aug = diag(nwi.confmat.aug)/rowSums(nwi.confmat.aug)
 
 ## Sep
-nwi.confmat.sep <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinary0919))
+nwi.confmat.sep <- table(as.factor(extract(hailey.nwi.ras, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinhaileyCreek0921))
 rownames(nwi.confmat.sep) =  cats
 colnames(nwi.confmat.sep) =  cats
 nwi.confmat.sep
@@ -134,7 +134,7 @@ nwi.result
 
 ## sgi comparison
 ## July
-sgi.confmat.july <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.july)), as.factor(hailey.pts.july$planetBinary0719))
+sgi.confmat.july <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.july)), as.factor(hailey.pts.july$planetBinhaileyCreek0721))
 rownames(sgi.confmat.july) =  cats
 colnames(sgi.confmat.july) =  cats
 sgi.confmat.july
@@ -144,7 +144,7 @@ sgi.pa.july = diag(sgi.confmat.july)/colSums(sgi.confmat.july)
 sgi.ua.july = diag(sgi.confmat.july)/rowSums(sgi.confmat.july)
 
 ## Aug
-sgi.confmat.aug <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinary0819))
+sgi.confmat.aug <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.aug)), as.factor(hailey.pts.aug$planetBinhaileyCreek0821))
 rownames(sgi.confmat.aug) =  cats
 colnames(sgi.confmat.aug) =  cats
 sgi.confmat.aug
@@ -154,7 +154,7 @@ sgi.pa.aug = diag(sgi.confmat.aug)/colSums(sgi.confmat.aug)
 sgi.ua.aug = diag(sgi.confmat.aug)/rowSums(sgi.confmat.aug)
 
 ## Sep
-sgi.confmat.sep <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinary0919))
+sgi.confmat.sep <- table(as.factor(extract(hailey.sgi.ras, hailey.pts.sep)), as.factor(hailey.pts.sep$planetBinhaileyCreek0921))
 rownames(sgi.confmat.sep) =  cats
 colnames(sgi.confmat.sep) =  cats
 sgi.confmat.sep
