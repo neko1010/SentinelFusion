@@ -27,7 +27,7 @@ cats = c('Land', 'Water')
 ## SF
 
 ## Mackay
-mackay.sf.confmat <- table(as.factor(extract(mackay.sf, mackay.pts)), as.factor(mackay.pts$planetBinaryMackay0721))
+mackay.sf.confmat <- table(as.factor(extract(mackay.sf, mackay.pts)), as.factor(mackay.pts$classification))
 rownames(mackay.sf.confmat) =  cats
 colnames(mackay.sf.confmat) =  cats
 mackay.sf.confmat
@@ -46,7 +46,7 @@ mackay.sf.result
 
 
 ## Thousand springs
-thou.sf.confmat <- table(as.factor(extract(thou.sf, thou.pts)), as.factor(thou.pts$planetBinaryThousprings0721))
+thou.sf.confmat <- table(as.factor(extract(thou.sf, thou.pts)), as.factor(thou.pts$classification))
 rownames(thou.sf.confmat) = cats
 colnames(thou.sf.confmat) = cats
 thou.sf.confmat
@@ -65,7 +65,7 @@ thou.sf.result
 
 
 ## Big Lost
-biglost.sf.confmat <- table(as.factor(extract(biglost.sf, biglost.pts)), as.factor(biglost.pts$planetBinaryBiglost0721))
+biglost.sf.confmat <- table(as.factor(extract(biglost.sf, biglost.pts)), as.factor(biglost.pts$classification))
 rownames(biglost.sf.confmat) = cats
 colnames(biglost.sf.confmat) = cats
 biglost.sf.confmat
@@ -89,7 +89,7 @@ thou.GLAD = raster('2021/GLADbinaryThousprings0721.tif')
 biglost.GLAD = raster('2021/GLADbinaryBiglost0721.tif')
 
 ## Mackay
-mackay.GLAD.confmat <- table(as.factor(extract(mackay.GLAD, mackay.pts)), as.factor(mackay.pts$planetBinaryMackay0721))
+mackay.GLAD.confmat <- table(as.factor(extract(mackay.GLAD, mackay.pts)), as.factor(mackay.pts$classification))
 rownames(mackay.GLAD.confmat) = cats
 colnames(mackay.GLAD.confmat) = cats
 mackay.GLAD.confmat
@@ -107,7 +107,7 @@ class(mackay.GLAD.result) <- "table"
 mackay.GLAD.result
 
 ## Thousand springs
-thou.GLAD.confmat <- table(as.factor(extract(thou.GLAD, thou.pts)), as.factor(thou.pts$planetBinaryThousprings0721))
+thou.GLAD.confmat <- table(as.factor(extract(thou.GLAD, thou.pts)), as.factor(thou.pts$classification))
 rownames(thou.GLAD.confmat) = cats
 colnames(thou.GLAD.confmat) = cats
 thou.GLAD.confmat
@@ -126,7 +126,7 @@ thou.GLAD.result
 
 
 ## Big Lost
-biglost.GLAD.confmat <- table(as.factor(extract(biglost.GLAD, biglost.pts)), as.factor(biglost.pts$planetBinaryBiglost0721))
+biglost.GLAD.confmat <- table(as.factor(extract(biglost.GLAD, biglost.pts)), as.factor(biglost.pts$classification))
 biglost.GLAD.confmat <-rbind(biglost.GLAD.confmat, c(0,0))  ## no water detected - need to append a row of zeroes
 rownames(biglost.GLAD.confmat) = cats
 colnames(biglost.GLAD.confmat) = cats
